@@ -16,26 +16,4 @@ d = pprint.pformat(dict(stations),indent=4).decode("unicode-escape").replace('u'
 with open("stations.json","w") as f:
 	f.write(d)
 
-# def byteify(input):
-#     if isinstance(input, dict):
-#         return {byteify(key): byteify(value) for key, value in input.iteritems()}
-#     elif isinstance(input, list):
-#         return [byteify(element) for element in input]
-#     elif isinstance(input, unicode):
-#         return input.encode('utf-8')
-#     else:
-#         return input
-
-# d = byteify(p)
-# print d
-# with open("a.json","w")as f:
-# # 	p = pprint.pformat(dict(stations),indent=4)
-#  	f.write(p)
-
-
-#with open("stations.json","w") as f:
-#	f.write(pprint(dict(stations),indent=4))
-#json.dump(pprint(dict(stations),indent=4),open("a.json","w"))
-#result = pprint.pformat(dict(stations),indent=4)
-#json.dump(result,open("a.json","w"))
 
