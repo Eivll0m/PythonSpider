@@ -1,41 +1,29 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from mzitu.items import MzituItem
+from lxml import etree
+import requests
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 class MymzituSpider(scrapy.Spider):
+    def get_urls():
+        url = 'http://www.mzitu.com'
+        headers = {}
+        headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+        r = requests.get(url,headers=headers)
+        html = etree.HTML(r.text)
+        urls = html.xpath('//*[@id="pins"]/li/a/@href')
+        return urls
+
     name = 'Mymzitu'
     allowed_domains = ['www.mzitu.com']
-    #start_urls = response.xpath('//*[@id="pins"]/li/a/@href').extract()
-    start_urls = [u'http://www.mzitu.com/114291',
-                 u'http://www.mzitu.com/114244',
-                 u'http://www.mzitu.com/114203',
-                 u'http://www.mzitu.com/114154',
-                 u'http://www.mzitu.com/114103',
-                 u'http://www.mzitu.com/114055',
-                 u'http://www.mzitu.com/113989',
-                 u'http://www.mzitu.com/113946',
-                 u'http://www.mzitu.com/113895',
-                 u'http://www.mzitu.com/113834',
-                 u'http://www.mzitu.com/113803',
-                 u'http://www.mzitu.com/113782',
-                 u'http://www.mzitu.com/113731',
-                 u'http://www.mzitu.com/113690',
-                 u'http://www.mzitu.com/113659',
-                 u'http://www.mzitu.com/113609',
-                 u'http://www.mzitu.com/113562',
-                 u'http://www.mzitu.com/113515',
-                 u'http://www.mzitu.com/113473',
-                 u'http://www.mzitu.com/113376',
-                 u'http://www.mzitu.com/113427',
-                 u'http://www.mzitu.com/113261',
-                 u'http://www.mzitu.com/113310',
-                 u'http://www.mzitu.com/113200']
+    start_urls = get_urls()
 
     def parse(self, response):
         item = MzituItem()
+        #item['title'] = response.xpath('//h2[@class="main-title"]/text()')[0] .extract()
         item['title'] = response.xpath('//h2[@class="main-title"]/text()')[0] .extract().split('（')[0]
         item['img'] = response.xpath('//div[@class="main-image"]/p/a/img/@src')[0].extract()
         item['name'] = response.xpath('//div[@class="main-image"]/p/a/img/@src')[0].extract().split('/')[-1]
