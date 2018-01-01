@@ -15,6 +15,6 @@ cd mzitu
 scrapy crawl Mymizitu
 ```
 ## 最终爬取结果
-![](onw.PNG)
+![](one.PNG)
 
 ![](two.PNG)
