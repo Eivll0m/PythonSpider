@@ -56,6 +56,9 @@ DOWNLOADER_MIDDLEWARES = {
     'hshfy.middlewares.HshfyDownloaderMiddleware': 543,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
     'hshfy.middlewares.RotateUserAgentMiddleware':400,
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':None,
+    'hshfy.middlewares.ProxyMiddleWare':125,
+    'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware':None,
 }
 
 # Enable or disable extensions
