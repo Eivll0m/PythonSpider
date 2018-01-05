@@ -26,8 +26,8 @@ class YoudaoDict:
 
     def transTarget(self):
         browser = self.browser
-        browser.implicitly_wait(3)
         browser.get(self.url)
+        browser.implicitly_wait(3)
         text = browser.find_element_by_id('inputOriginal')
         text.clear()
         while 1:
