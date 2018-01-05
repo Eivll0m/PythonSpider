@@ -6,3 +6,4 @@
 * 2018年01月01日 [妹子图www.mzitu.com【Scrapy框架】](https://github.com/Eivll0m/PythonSpider/tree/master/mzitu) 
 * 2018年01月02日 [www.hshfy.sh.cn数据爬取【Scrapy框架】](https://github.com/Eivll0m/PythonSpider/tree/master/hshfy) 
 * 2018年01月03日 [获取西刺免费代理IP](https://github.com/Eivll0m/PythonSpider/blob/master/xiciproxy/proxies.py) 
+* 2018年01月05日 [有道翻译爬虫](https://github.com/Eivll0m/PythonSpider/tree/master/youdao)
