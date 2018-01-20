@@ -49,10 +49,7 @@ class LagouSpider:
 
 if __name__ == '__main__':
     Lagou = LagouSpider()
-    mongo = mymongo.MongodbOPT('123.56.154.51',27017,'kuaiyi','FjyUuQhCoeDG#TwR','lagou')
-    #r = L.get_data()[0]
-    #mongo.insertData(r)
-    #jobdescriptions = L.get_detail('4063371')
+    mongo = mymongo.MongodbOPT('xxx.xxx.xxx.xxx',27017,'Mydb','FjyUuQhCoeDG#TwR','lagou')
     for page in range(1,31):
         for position in Lagou.get_data(page):
             result = {}
